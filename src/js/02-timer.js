@@ -37,7 +37,6 @@ const options = {
 
 flatpickr(input, options);
 
-// функція конвертування міллісекунд від добрго індуса Саши
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
