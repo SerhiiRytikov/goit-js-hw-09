@@ -7,6 +7,7 @@ function getRandomHexColor() {
 //* доступ до кнопок та боді(для зміни кольору боді)
 const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
+stopBtn.disabled = true; //* деактивує кнопку stop при завантаженні сторінки
 const body = document.querySelector('body');
 
 //* змінна для запуску та зупинки інтервалу (з конспекту)
@@ -18,15 +19,15 @@ startBtn.addEventListener('click', () => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 
-  //* деактивує кнопку start (disabled)
-  startBtn.setAttribute('disabled', true);
+  //* деактивує кнопку start та активує кнопку stop при запусканні таймеру
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
 });
 
 //* зупиняє таймер
 stopBtn.addEventListener('click', () => {
   clearInterval(timerId);
-  //* видаляє деактивацію з кнопки start (disabled)
-  startBtn.removeAttribute('disabled');
-  //* деактивує кнопку stop (disabled) як на відео з тз
-  stopBtn.setAttribute('disabled', true);
+  //* деактивує кнопку stop та активує кнопку start після зупинки таймеру
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
 });
