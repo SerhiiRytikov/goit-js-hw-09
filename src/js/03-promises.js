@@ -35,6 +35,7 @@ function onSubmit(event) {
       });
     delayValue += stepValue;
   }
+  event.currentTarget.reset();
 }
 
 handleButtonSub.addEventListener('submit', onSubmit);
