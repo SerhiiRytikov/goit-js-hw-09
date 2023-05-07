@@ -12,6 +12,7 @@ const dateHours = document.querySelector('[data-hours]');
 const dateMinutes = document.querySelector('[data-minutes]');
 const dateSeconds = document.querySelector('[data-seconds]');
 const startBtn = document.querySelector('button[data-start]');
+startBtn.disabled = true; // Додає заборону кнопки "start" при завантаженні сторінки
 
 // змінна для запуску та зупинки інтервалу
 let intervalId = null;
@@ -25,7 +26,7 @@ const options = {
   onClose(selectedDates) {
     // console.log(selectedDates[0]);
     if (selectedDates[0] < Date.now()) {
-      startBtn.disabled = true;
+      // startBtn.disabled = true;
       Notiflix.Notify.failure(
         'Please choose a date in the future Будь ласка виберіть дату в майбутньому'
       );
